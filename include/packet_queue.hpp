@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include <packet.hpp>
 #include <optional>
+
+#include "packet.hpp"
 
 
 class PacketQueue {
@@ -14,10 +15,10 @@ private:
     bool done_ = false;
 
 public:
-    PacketQueue();
-    void enqueue(Packet&& packet);
+    PacketQueue(size_t capacity);
+    bool enqueue(Packet&& packet);
     std::optional<Packet> dequeue();
     void shutdown();
-    size_t get_cpacity();
+    size_t get_capacity();
     void set_capacity(size_t capacity);
 };
