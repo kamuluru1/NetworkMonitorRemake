@@ -16,6 +16,7 @@ private:
 
 public:
     PacketQueue(size_t capacity);
+    ~PacketQueue();
     bool enqueue(Packet&& packet);
     std::optional<Packet> dequeue();
     void shutdown();
